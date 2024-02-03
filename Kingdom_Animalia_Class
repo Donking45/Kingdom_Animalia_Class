@@ -1,0 +1,91 @@
+// Base class for Animalia
+class Animalia {
+    constructor(_name, _type, _backboneType, _bloodType) {
+        this.name = _name;
+        this.type = _type;
+        this.backboneType = _backboneType;
+        this.bloodType = _bloodType;
+    }
+
+    // Encapsulation: Private method
+    #hiddenFunction () {
+        console.log (`This is a private function for ${this.name}.`);
+    }
+
+    callHiddenFunction() {
+
+        this.#hiddenFunction()
+    }
+
+    // Abstraction: Common method for all animals
+    makeSound() {
+        console.log (`${this.name} makes a generic sound.`);
+
+    }
+}
+
+// Inheritance: Animalia class is the base class for withBackbone and withoutBackbone classes.
+
+// Derived class for animals with a backbone
+class WithBackbone extends Animalia {
+    constructor(_name, _type, _bloodType) {
+        super(_name, _type, '_withBackbone', _bloodType);
+    }
+
+    // Polymorphism: Override makeSound method for specific behavior
+    makeSound() {
+        console.log(`${this.name} withBackbone makes a specific sound.`);
+    }
+
+}
+     
+
+// Derived class for animals without a backbone
+class WithoutBackbone extends Animalia {
+    constructor(_name, _type, _bloodType) {
+        super(_name, _type, '_WithoutBackbone', _bloodType);
+    }
+
+    // Polymorphism: override makeSound method for specific behavior
+    makeSound() {
+        console.log (`${this.name} withoutBackbone makes a different sound.`);
+
+    }
+}
+
+// Derived class for coldBlooded animals
+class ColdBlooded extends Animalia {
+    constructor(_name, _type) {
+        super(_name, _type, '', 'Cold Blooded');
+    }
+
+    // Polymorphism: override make sound method for specific behavior
+    makeSound() {
+        console.log(`${this.name} is coldBlooded and has a specific behavior.`);
+
+    }
+}
+
+// Derived class for warmBloodedanimals
+class WarmBlooded extends Animalia {
+    constructor(_name, _type) {
+        super(_name, _type, '', 'Warm Blooded');
+    }
+
+    // Polymorphism: override make sound method for specific behavior 
+    makeSound() {
+        console.log(`${this.name} is warmBlooded and has a different behavior`);
+
+    } 
+}
+
+// Example usage showing Polymorphism, Encapsulation, Abstraction
+const lion = new WithBackbone('Lion', 'Mammal', 'Warm Blooded');
+const snake = new WithoutBackbone('Tortoise', 'Reptile', 'Cold Blooded');
+const butterfly = new WithoutBackbone('Butterfly', 'Anthropoda', 'Cold Blooded');
+const eagle = new WarmBlooded('Eagle', 'Bird');
+
+lion.makeSound();
+snake.makeSound();
+butterfly.makeSound();
+eagle.makeSound();
