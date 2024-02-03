@@ -34,8 +34,8 @@ class Animalia {
   
     makeSound() {
       console.log(`${this.name} with backbone makes a specific sound.`);
-      // No need to directly call #hiddenFunction here
-      // The overridden makeSound calls the base class method, which indirectly calls #hiddenFunction
+      // No need to directly call #internalFunction here
+      // The overridden makeSound calls the base class method, which indirectly calls #internalFunction
       super.makeSound();
     }
   }
